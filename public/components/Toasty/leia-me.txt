@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="toast.css">
+<script src="toast.js"></script>
+
+<script>
+  // Exemplo de chamada
+  // showToast(mensagem, tipo, posição, duração);
+  showToast("Usuário cadastrado com sucesso!", "success", "top-right", 4000);
+  // showToast("Erro ao cadastrar usuário!", "error", "bottom-center", 4000);
+</script>
+
+
+ Integração com PHP
+Você pode passar a mensagem via $_GET ou $_SESSION para o JavaScript e chamar showToast(...) dinamicamente, assim:
+
+php
+Copiar
+Editar
+
+<?php if (isset($_GET['msg'])): ?>
+  <script>
+    showToast("<?= htmlspecialchars($_GET['msg']) ?>", "success", "top-right", 4000);
+  </script>
+<?php endif; ?>

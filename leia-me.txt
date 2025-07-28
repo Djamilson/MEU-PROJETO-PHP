@@ -1,0 +1,14 @@
+roda projeto
+
+php -S localhost:8000
+php -S localhost:8000 -t public
+
+
+importar script
+
+docker exec -i micro_eas_mysql_db mysql -u admin -p"f2966052964454b6601c83f1cc08ab97" easdb < ./sql/easdb.sql
+
+Sempre que mudar namespaces ou estrutura de pastas:
+→ Rode 
+
+> composer dump-autoload

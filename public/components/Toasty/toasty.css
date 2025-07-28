@@ -1,0 +1,171 @@
+/* =========================
+   BASE STYLES FOR TOAST
+   ========================= */
+.toast {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 320px;
+  min-height: 52px;
+  padding: 12px 16px;
+  margin: 16px;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  gap: 10px;
+  animation: slideIn 0.3s ease-out;
+}
+
+
+/* =========================
+   ICON
+   ========================= */
+.toast-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  flex-shrink: 0;
+  stroke: #fff;
+}
+
+
+/* =========================
+   MESSAGE
+   ========================= */
+.toast-message {
+  flex: 1;
+  padding-right: 32px;
+  line-height: 1.4;
+}
+
+/* =========================
+   CLOSE BUTTON
+   ========================= */
+.toast-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.toast-close:hover {
+  opacity: 0.5;
+}
+
+/* =========================
+   PROGRESS BAR
+   ========================= */
+
+.toast-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.2)
+  );
+  animation: toast-progress-animation 5s linear forwards,
+             toast-fadeout 5s linear forwards;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+
+@keyframes toast-progress-animation {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+/* =========================
+   TOAST TYPES
+   ========================= */
+.toast-success {
+  background-color: #2ecc71; /* Verde */
+}
+
+.toast-error {
+  background-color: #e74c3c; /* Vermelho */
+}
+
+.toast-warning {
+  background-color: #f39c12; /* Amarelo */
+}
+
+.toast-info {
+  background-color: #3498db; /* Azul */
+}
+
+
+.toast-success .toast-icon {
+  stroke: #ffffff;
+}
+
+.toast-error .toast-icon {
+  stroke: #ffffff;
+}
+
+.toast-warning .toast-icon {
+  stroke: #ffffff;
+}
+
+.toast-info .toast-icon {
+  stroke: #ffffff;
+}
+
+
+.toast {
+  pointer-events: auto;
+}
+
+/* =========================
+   TOAST CONTAINER POSITIONS
+   ========================= */
+.toast-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 100vw;
+  pointer-events: none;
+}
+
+/* =========================
+   ENTRADA ANIMADA
+   ========================= */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toast-fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.2;
+  }
+}

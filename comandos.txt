@@ -1,0 +1,11 @@
+formatar -> Shift + Option + F
+Cmd + Shift + R
+
+2. Encontre o form_user.php real
+Rode o comando abaixo no terminal para localizar todos os form_user.php:
+
+> find . -name "form_user.php"
+
+> tree -L 3
+
+ls components/Toasty/toast.css
