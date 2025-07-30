@@ -1,6 +1,5 @@
 <div class="user-list">
-    <?php if (count($users) > 0): ?>
-        <div class="user-header user-row">
+    <div class="user-header user-row">
             <div>ID</div>
             <div>Nome</div>
             <div>Data de Nascimento</div>
@@ -10,7 +9,7 @@
             <div>Email</div>
             <div>Criado em</div>
         </div>
-
+    <?php if (count($users) > 0): ?>
         <?php foreach ($users as $user): ?>
             <div class="user-row">
                 <div><?= htmlspecialchars($user['id']) ?></div>

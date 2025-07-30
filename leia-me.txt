@@ -12,3 +12,4 @@ Sempre que mudar namespaces ou estrutura de pastas:
 → Rode 
 
 > composer dump-autoload
+> Cmd + Shift + F (buscar em todo o projeto) 

@@ -66,12 +66,9 @@ $users = UserHandler::listUsers();
             userForm.reset();
         }
 
-
         if (closeBtn) {
             closeBtn.addEventListener('click', closeDrawer);
         }
-        console.log('🧪 userForm:', userForm);
-
         // Submete o formulário via Ajax
         userForm.addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -102,8 +99,6 @@ $users = UserHandler::listUsers();
             }
         });
 
-        console.log('🧪 userForm:', userForm);
-
         // Adiciona novo usuário à tabela
         function addUserToList(user) {
             let userList = document.querySelector(".user-list");
@@ -112,22 +107,6 @@ $users = UserHandler::listUsers();
             if (!userList) {
                 userList = document.createElement("div");
                 userList.classList.add("user-list");
-
-                const headerRow = document.createElement("div");
-                headerRow.classList.add("user-header", "user-row");
-                headerRow.innerHTML = `
-            <div>ID</div>
-            <div>Nome</div>
-            <div>Data de Nascimento</div>
-            <div>Endereço</div>
-            <div>Estado</div>
-            <div>CPF</div>
-            <div>Email</div>
-            <div>Criado em</div>
-        `;
-
-                userList.appendChild(headerRow);
-
                 // Insere na página (por ex. dentro de `.main-content`)
                 document.querySelector(".main-content").appendChild(userList);
             }
