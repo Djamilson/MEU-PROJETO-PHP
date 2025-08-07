@@ -1,0 +1,91 @@
+/* Sidebar esquerda */
+.sidebar-left {
+  width: 250px;
+  background-color: #666666;
+  color: #ffffff;
+  height: 100vh;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 3.5rem;
+  left: 0;
+  z-index: 10;
+}
+
+/* === MENU SIDEBAR === */
+.menu-section {
+  margin-bottom: 2rem;
+}
+
+.menu-title {
+  font-size: 0.775rem;
+  font-weight: 600;
+  color: #667085;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.menu-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-section li {
+  margin-bottom: 0.5rem;
+}
+
+.menu-section a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: #dedede;
+  background-color: transparent;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.menu-section a:hover {
+  background-color: #1a1f2e;
+  color: #ffffff;
+}
+
+.menu-section li.active a {
+  background-color: #ed1d24;
+  color: white;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 2;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+.arrow {
+  margin-left: auto;
+  color: #667085;
+  font-size: 1.25rem;
+}
+
+/* Responsividade da sidebar */
+@media (max-width: 768px) {
+  .sidebar-left {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+}

@@ -1,11 +1,9 @@
+<div id="newUserDrawerOverlay" class="overlay"></div>
 
-
-<div id="drawerOverlay" class="overlay"></div>
-
-<div id="drawer" class="drawer">
-    <form id="userForm" class="form">
+<div id="newUserDrawer" class="drawer">
+    <form id="newUserForm" class="form">
         <h2>Novo Usuário</h2>
-        
+
         <input type="hidden" name="debug_token" value="form_user_v3">
 
         <label>Nome:</label>
@@ -28,7 +26,7 @@
 
         <div class="form-actions">
             <button type="submit" class="btn-primary">Salvar</button>
-            <button type="button" id="closeDrawerBtn" class="btn-secondary">Cancelar</button>
+            <button type="button" id="newUserCloseDrawerBtn" class="btn-secondary">Cancelar</button>
         </div>
     </form>
 </div>
