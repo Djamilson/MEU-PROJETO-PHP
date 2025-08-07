@@ -1,10 +1,14 @@
 <?php
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once __DIR__ . '/../../scripts/user_handler.php';
+require_once __DIR__ . '/../../../scripts/user_handler.php';
 use Scripts\UserHandler;
+
+header('Content-Type: application/json');
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Content-Type: application/json');
@@ -16,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!$id || !is_numeric($id)) {
         echo json_encode([
             'status' => 'error',
-            'message' => '❌ ID do usuário inválido ou não fornecido.'
+            'message' => 'ID do usuário inválido ou não fornecido.'
         ]);
         exit;
     }

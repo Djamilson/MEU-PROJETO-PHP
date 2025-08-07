@@ -56,8 +56,7 @@
     });
 </script> 
 
-<script src="/components/user/new_user_drawer.js"></script>
-<script src="/components/user/edit_user_drawer.js"></script>
+<script src="/components/user/user_handlers.js"></script>
 
 </body>
 
