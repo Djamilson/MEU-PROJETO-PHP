@@ -31,14 +31,14 @@
 }
 
 /* Cores dos tipos */
-.toast-success { background-color: #2ecc71; }
-.toast-error   { background-color: #e74c3c; }
-.toast-warning { background-color: #f39c12; }
-.toast-info    { background-color: #3498db; }
+.toast-success { background-color: #22c55e; }
+.toast-error   { background-color: #dc2626; }
+.toast-warning { background-color: #f59e0b; }
+.toast-info    { background-color: #2563eb; }
 
 .toast-icon {
-  width: 20px;
-  height: 20px;
+  width: 28px;
+  height: 28px;
   stroke: #fff;
   flex-shrink: 0;
   display: inline-block;

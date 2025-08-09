@@ -1,4 +1,4 @@
-/* === RESET e BASE GLOBAL === */
+/* === RESET E BASE GLOBAL === */
 * {
   margin: 0;
   padding: 0;
@@ -25,8 +25,6 @@ html, body {
   width: 100%;
   min-height: 100vh;
 }
-
-/* ConteÃºdo principal */
 
 .main-content {
   margin-left: 250px;
@@ -59,7 +57,7 @@ p {
   color: #667085;
 }
 
-/* === BOTÃ•ES === */
+/* === BOTÕES GERAIS === */
 .btn {
   border-radius: 10px;
   text-transform: uppercase;
@@ -88,10 +86,64 @@ p {
   padding: 0 1rem;
 }
 
-.btn-primary {
-  background-color: #101828;
+/* === BOTÕES VARIADOS === */
+.btn-primary,
+.btn-success,
+.btn-warning,
+.btn-danger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 90px; /* opcional: garante largura mínima */
+  height: 40px; /* altura fixa */
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
+/* Botões específicos com cores e hover */
+.btn-primary {
+  background-color: #2563eb; /* Azul Tailwind */
+}
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+.btn-warning {
+  background-color: #f59e0b; /* Amarelo Tailwind */
+}
+.btn-warning:hover {
+  background-color: #d97706;
+}
+
+.btn-danger {
+  background-color: #dc2626; /* Vermelho Tailwind */
+}
+.btn-danger:hover {
+  background-color: #b91c1c;
+}
+
+.btn-success {
+  background-color: #22c55e; /* Verde claro Tailwind */
+}
+.btn-success:hover {
+  background-color: #16a34a; /* Verde mais escuro no hover */
+}
+
+/* Efeito ao clicar (igual para todos os botões principais) */
+.btn-primary:active,
+.btn-success:active,
+.btn-warning:active,
+.btn-danger:active {
+  transform: scale(0.97);
+}
+
+/* Botões secundários e de destaque */
 .btn-secondary {
   background-color: #667085;
 }
@@ -99,7 +151,6 @@ p {
 .btn-accent {
   background-color: #ed1d24;
 }
-
 .btn-accent:hover {
   background-color: #dd242a;
 }
@@ -108,7 +159,7 @@ p {
   color: #ed1d24;
 }
 
-/* === CARREGAMENTO (Loading Bar) === */
+/* === BARRA DE CARREGAMENTO (Loading Bar) === */
 .load-bar {
   position: fixed;
   top: 0;
@@ -143,7 +194,7 @@ p {
   animation: loading 3s linear 2s infinite;
 }
 
-/* === UTILITÃRIOS === */
+/* === UTILITÁRIOS === */
 .section {
   width: 100%;
   height: 100vh;
@@ -155,6 +206,7 @@ p {
   line-height: 2rem;
 }
 
+/* Google-themed classes */
 .google-text-gray { color: #3c4043; }
 .google-button-blue { background: #1a73e8; }
 .google-button-blue:hover { background: #5195ee; }
@@ -167,7 +219,7 @@ p {
 .google-logo-yellow { color: #fbbc05; }
 .google-logo-red { color: #ea4335; }
 
-/* === RESPOSIVIDADE (ajuste bÃ¡sico) === */
+/* === RESPONSIVIDADE (ajuste básico) === */
 @media (max-width: 768px) {
   .main-content {
     margin-left: 0;
@@ -175,5 +227,17 @@ p {
 
   .layout {
     flex-direction: column;
+  }
+}
+
+/* === ANIMAÇÕES === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

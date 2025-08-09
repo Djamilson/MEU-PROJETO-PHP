@@ -6,6 +6,7 @@
     <title>Welcome</title>
     <link rel="stylesheet" href="/assets/globals.css">
     <link rel="stylesheet" href="/components/Modal/modal.css">
+    <link rel="stylesheet" href="/components/Loading/loading.css">
     <link rel="stylesheet" href="/components/Toasty/toasty.css">
     <link rel="stylesheet" href="/components/user/user_style.css">
     <link rel="stylesheet" href="/components/menu/menu-left/menu-left.css">
@@ -13,6 +14,8 @@
 </head>
 
 <body>
+<!-- loading -->
+        <?php include(__DIR__ . '/components/Loading/index.html'); ?>
 
     <aside class="">
         <?php include(__DIR__ . '/components/header/index.php'); ?>
@@ -29,7 +32,7 @@
                 <a href="/components/user/index.php">Listar Usuários</a>
             </div>
 
-            <?php include(__DIR__ . '/components/user/index.php'); ?>
+            <?php include(__DIR__ . '/components/user/index.html'); ?>
         </main>
 
         <!-- abre o modal -->
@@ -58,8 +61,12 @@
     });
 </script> 
 
-<script src="/components/user/user_handlers.js"></script>
-<script src="/components/modal/modal_script.js"></script>
+<script src="/components/loading/loading_script.js"></script>
+<script src="/components/user/user_common.js"></script>
+<script src="/components/user/new_user_script.js"></script>
+<script src="/components/user/edit_user_script.js"></script>
+<script src="/components/user/delete_user_script.js"></script>
+
 
 </body>
 

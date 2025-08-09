@@ -2,7 +2,6 @@
 require_once(__DIR__ . '/../../../scripts/user_handler.php');
 #require_once BASE_PATH . '/scripts/user_handler.php';
 
-
 $file = __DIR__ . '/../../../scripts/user_handler.php';
 
 if (!file_exists($file)) {
@@ -31,5 +30,5 @@ $users = UserHandler::listUsers();
 
 <?php include(__DIR__ . '/new_user_form.php'); ?>
 <?php include(__DIR__ . '/edit_user_form.php'); ?>
-<?php include(__DIR__ . '/../Modal/delete_modal.php'); ?>
+<?php include(__DIR__ . '/../Modal/index.html'); ?>
 
