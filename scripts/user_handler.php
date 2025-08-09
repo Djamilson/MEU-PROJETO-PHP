@@ -62,7 +62,7 @@ class UserHandler
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
             return $user ?: "⚠️ Usuário não encontrado.";
         } catch (\PDOException $e) {
-            return "❌ Erro ao buscar usuário: " . $e->getMessage();
+            return "Erro ao buscar usuário: " . $e->getMessage();
         }
     }
 
@@ -87,21 +87,49 @@ class UserHandler
 
             return "✅ Usuário atualizado com sucesso.";
         } catch (\PDOException $e) {
-            return "❌ Erro ao atualizar: " . $e->getMessage();
+            return "Erro ao atualizar: " . $e->getMessage();
         }
     }
 
-    public static function deleteUser(int $id): string
-    {
-        $pdo = Database::connect();
+public static function deleteUser(int $id): string
+{
+    $pdo = Database::connect();
 
-        try {
-            $stmt = $pdo->prepare("DELETE FROM users WHERE id = ?");
-            $stmt->execute([$id]);
+    header('Content-Type: application/json'); // Resposta sempre em JSON
 
-            return "🗑️ Usuário excluído com sucesso.";
-        } catch (\PDOException $e) {
-            return "❌ Erro ao excluir usuário: " . $e->getMessage();
+    try {
+        $myUser = self::getUserById($id);
+
+        if (is_string($myUser)) {
+            return json_encode([
+                'status' => 'error',
+                'message' => "Usuário não encontrado."
+            ]);
         }
+
+        $stmt = $pdo->prepare("DELETE FROM users WHERE id = ?");
+        $stmt->execute([$id]);
+
+        if ($stmt->rowCount() > 0) {
+            return json_encode([
+                'status' => 'success',
+                'message' => "Usuário excluído com sucesso.",
+                'id' => $id
+            ]);
+        } else {
+            return json_encode([
+                'status' => 'error',
+                'message' => "Nenhuma linha afetada. O usuário pode já ter sido removido."
+            ]);
+        }
+    } catch (\PDOException $e) {
+        return json_encode([
+            'status' => 'error',
+            'message' => "Erro ao excluir usuário: " . $e->getMessage()
+        ]);
     }
+}
+
+
+
 }

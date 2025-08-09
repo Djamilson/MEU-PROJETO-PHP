@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <title>Welcome</title>
     <link rel="stylesheet" href="/assets/globals.css">
+    <link rel="stylesheet" href="/components/Modal/modal.css">
     <link rel="stylesheet" href="/components/Toasty/toasty.css">
-    <link rel="stylesheet" href="/components/user/style.css">
+    <link rel="stylesheet" href="/components/user/user_style.css">
     <link rel="stylesheet" href="/components/menu/menu-left/menu-left.css">
     <link rel="stylesheet" href="/components/header/header-styles.css">
 </head>
@@ -29,10 +30,11 @@
             </div>
 
             <?php include(__DIR__ . '/components/user/index.php'); ?>
-
         </main>
-    </div>
 
+        <!-- abre o modal -->
+        <?php include(__DIR__ . '/components/Modal/index.html'); ?>
+    </div>
 </body>
 
 <!-- Carregue o JS do toast -->
@@ -40,10 +42,10 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        showToast("Usuário cadastrado com sucesuuso!", "success", "top-right", 4000);
-         showToast("Usuário cadastrado com sucessooo!", "warning", "top-right", 4000);
-          showToast("Usuário cadastrado com sucessooo!", "info", "top-right", 4000);
-        showToast("Erro ao cadastrar usuário: Erro de validação", "error", "bottom-left", 4000);
+        //showToast("Usuário cadastrado com sucesuuso!", "success", "top-right", 4000);
+        //showToast("Usuário cadastrado com sucessooo!", "warning", "top-right", 4000);
+        //showToast("Usuário cadastrado com sucessooo!", "info", "top-right", 4000);
+        //showToast("Erro ao cadastrar usuário: Erro de validação", "error", "bottom-left", 4000);
     });
 
     document.addEventListener("click", function(e) {
@@ -57,6 +59,7 @@
 </script> 
 
 <script src="/components/user/user_handlers.js"></script>
+<script src="/components/modal/modal_script.js"></script>
 
 </body>
 
