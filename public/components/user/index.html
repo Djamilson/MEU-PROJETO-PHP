@@ -33,6 +33,7 @@ $users = UserHandler::listUsers();
         <!-- Conteúdo será preenchido via JavaScript -->
     </div>
     <p class="no-users-msg" id="noUsersMessage" style="display: none;">Nenhum usuário encontrado.</p>
+    <?php include(__DIR__ . '/../../components/Pagination/index.html'); ?>
 </div>
 
 <?php include(__DIR__ . '/new_user_form.php'); ?>

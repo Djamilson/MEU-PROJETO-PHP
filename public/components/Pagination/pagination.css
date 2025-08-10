@@ -1,0 +1,39 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+  font-family: sans-serif;
+}
+
+.pagination a,
+.pagination span {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #555;
+  font-size: 14px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.pagination a:hover:not(.disabled):not(.active) {
+  background: #f0f0f0;
+}
+
+.pagination .active {
+  background: #6366f1; /* roxo similar ao Tailwind */
+  color: white;
+  border-color: #6366f1;
+}
+
+.pagination .disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination .prev,
+.pagination .next {
+  font-weight: 500;
+}

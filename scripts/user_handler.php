@@ -40,13 +40,43 @@ class UserHandler
         }
     }
 
-    public static function listUsers(): array
+    public static function listUsersSemPagination(): array
     {
         $pdo = Database::connect();
 
         try {
             $stmt = $pdo->query("SELECT * FROM users ORDER BY id DESC");
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (\PDOException $e) {
+            die("Erro ao buscar usuários: " . $e->getMessage());
+        }
+    }
+
+public static function listUsers(int $page = 1, int $limit = 10): array
+    {
+        $pdo = Database::connect();
+
+        try {
+            $offset = ($page - 1) * $limit;
+
+            // Busca usuários paginados
+            $stmt = $pdo->prepare("SELECT * FROM users ORDER BY id DESC LIMIT :limit OFFSET :offset");
+            $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+            $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+            $stmt->execute();
+            $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            // Conta total de registros
+            $totalStmt = $pdo->query("SELECT COUNT(*) as total FROM users");
+            $total = (int) $totalStmt->fetch(PDO::FETCH_ASSOC)['total'];
+
+            return [
+                'users' => $users,
+                'total' => $total,
+                'page' => $page,
+                'limit' => $limit,
+                'total_pages' => ceil($total / $limit)
+            ];
         } catch (\PDOException $e) {
             die("Erro ao buscar usuários: " . $e->getMessage());
         }

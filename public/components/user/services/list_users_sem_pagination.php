@@ -1,4 +1,6 @@
 <?php
+// components/user/list_users_ajax.php
+
 require_once(__DIR__ . '/../../../../scripts/user_handler.php');
 require_once __DIR__ . '/../../../../util/date_helper.php';
 
@@ -7,34 +9,29 @@ use Scripts\UserHandler;
 header('Content-Type: application/json');
 
 try {
-    // Pega página e limite da query string
-    $page = isset($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
-    $limit = isset($_GET['limit']) ? max(1, (int) $_GET['limit']) : 10;
+    $users = UserHandler::listUsers();
 
-    $data = UserHandler::listUsers($page, $limit);
-
-    // Formata datas
-    foreach ($data['users'] as &$user) {
+    foreach ($users as &$user) {
         if (!empty($user['birth_date'])) {
             $user['birth_date'] = formatDateToBR($user['birth_date']);
         }
+
         if (!empty($user['created_at'])) {
             $user['created_at'] = formatDateAndHoursToBR($user['created_at']);
         }
     }
-    unset($user);
+    unset($user); // boa prática ao usar referência (&)
+
+    error_log("📦 Minha lista " . json_encode($users, JSON_UNESCAPED_UNICODE));
 
     echo json_encode([
         'status' => 'success',
-        'users' => $data['users'],
-        'total' => $data['total'],
-        'page' => $data['page'],
-        'limit' => $data['limit'],
-        'total_pages' => $data['total_pages']
-    ], JSON_UNESCAPED_UNICODE);
+        'users' => $users
+    ]);
 } catch (Exception $e) {
     echo json_encode([
         'status' => 'error',
         'message' => 'Erro ao carregar usuários: ' . $e->getMessage()
     ]);
 }
+

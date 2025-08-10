@@ -6,6 +6,7 @@
     <title>Welcome</title>
     <link rel="stylesheet" href="/assets/globals.css">
     <link rel="stylesheet" href="/components/Modal/modal.css">
+    <link rel="stylesheet" href="/components/Pagination/pagination.css">
     <link rel="stylesheet" href="/components/Loading/loading.css">
     <link rel="stylesheet" href="/components/Toasty/toasty.css">
     <link rel="stylesheet" href="/components/user/user_style.css">

@@ -52,98 +52,81 @@ function renderUserRow(user) {
             </button>
         </div>
     `;
-
     return userRow;
 }
 
-// === Função: Carregar todos os usuários ===
-async function loadUsers() {
+// Configuração de paginação
+let currentPage = 1;
+const usersPerPage = 5;
+
+// === Função: Renderizar paginação ===
+function renderPagination(totalPages) {
+    const pagination = document.querySelector(".pagination");
+    pagination.innerHTML = "";
+
+    // Botão Previous
+    const prev = document.createElement("a");
+    prev.textContent = "Previous";
+    prev.href = "#";
+    if (currentPage === 1) prev.classList.add("disabled");
+    prev.onclick = (e) => {
+        e.preventDefault();
+        if (currentPage > 1) loadUsers(currentPage - 1);
+    };
+    pagination.appendChild(prev);
+
+    // Números das páginas
+    for (let i = 1; i <= totalPages; i++) {
+        const pageBtn = document.createElement("a");
+        pageBtn.textContent = i;
+        pageBtn.href = "#";
+        if (i === currentPage) pageBtn.classList.add("active");
+        pageBtn.onclick = (e) => {
+            e.preventDefault();
+            loadUsers(i);
+        };
+        pagination.appendChild(pageBtn);
+    }
+
+    // Botão Next
+    const next = document.createElement("a");
+    next.textContent = "Next";
+    next.href = "#";
+    if (currentPage === totalPages) next.classList.add("disabled");
+    next.onclick = (e) => {
+        e.preventDefault();
+        if (currentPage < totalPages) loadUsers(currentPage + 1);
+    };
+    pagination.appendChild(next);
+}
+
+// === Função: Carregar usuários ===
+async function loadUsers(page = 1) {
     try {
-        const response = await fetch('/components/user/services/list_users.php');
+        const response = await fetch(`/components/user/services/list_users.php?page=${page}&limit=${usersPerPage}`);
         const result = await response.json();
 
-        let userList = document.querySelector(".user-list");
-        if (!userList) {
-            userList = document.createElement("div");
-            userList.classList.add("user-list");
-            document.querySelector(".main-content")?.appendChild(userList);
-        }
-
-        // Limpa tudo e recria o cabeçalho
-        userList.innerHTML = '';
-        userList.appendChild(renderUserHeader());
-
-        document.querySelector(".no-users-msg")?.remove();
-
         if (result.status === 'success') {
-            if (result.users.length === 0) {
-                const msg = document.createElement("p");
-                msg.classList.add("no-users-msg");
-                msg.textContent = "Nenhum usuário encontrado.";
-                document.querySelector(".main-content")?.appendChild(msg);
-                return;
-            }
+            currentPage = result.page;
+
+            const userList = document.querySelector(".user-list");
+            userList.innerHTML = "";
+            userList.appendChild(renderUserHeader());
 
             result.users.forEach(user => {
                 userList.appendChild(renderUserRow(user));
             });
+
+            renderPagination(result.total_pages);
         } else {
-            showToast("Erro ao carregar usuários: " + result.message, "error", "top-right", 4000);
+            showToast("Erro ao carregar usuários: " + result.message, "error");
         }
     } catch (error) {
         console.error("Erro ao buscar usuários:", error);
-        showToast("Erro ao buscar usuários: " + error.message, "error", "top-right", 4000);
     }
 }
 
-// === Função: Adicionar novo usuário à lista ===
-
-function addUserToList(user) {
-    let userList = document.querySelector(".user-list");
-
-    if (!userList) {
-        userList = document.createElement("div");
-        userList.classList.add("user-list");
-        document.querySelector(".main-content")?.appendChild(userList);
-        userList.appendChild(renderUserHeader()); // adiciona o cabeçalho se for o primeiro
-    } else if (!userList.querySelector(".user-header")) {
-        userList.appendChild(renderUserHeader());
-    }
-
-    document.querySelector(".no-users-msg")?.remove();
-
-    const newRow = renderUserRow(user);
-
-    // Insere logo após o cabeçalho
-    const header = userList.querySelector(".user-header");
-    if (header.nextSibling) {
-        userList.insertBefore(newRow, header.nextSibling);
-    } else {
-        userList.appendChild(newRow);
-    }
-}
-
-// === Função: Comparar objetos usuário ===
-function usersAreDifferent(user1, user2) {
-    const keys = ['name', 'birth_date', 'address', 'state', 'cpf', 'email'];
-    return keys.some(key => (user1[key] || '') !== (user2[key] || ''));
-}
-
-// === Função: Atualizar linha de usuário na DOM ===
-function updateUserRow(user) {
-    const userList = document.querySelector(".user-list");
-    if (!userList) return;
-
-    const rows = userList.querySelectorAll(".user-row:not(.user-header)");
-    rows.forEach(row => {
-        if (row.children[0].textContent == user.id) {
-            const newRow = renderUserRow(user);
-            userList.replaceChild(newRow, row);
-        }
-    });
-}
-
-// === Inicialização ===
+// Iniciar carregamento
 document.addEventListener('DOMContentLoaded', () => {
     loadUsers();
 });
