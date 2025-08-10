@@ -9,3 +9,8 @@ Rode o comando abaixo no terminal para localizar todos os form_user.php:
 > tree -L 3
 
 ls components/Toasty/toast.css
+
+
+Criar link simbólico
+ln -s ~/meu-projeto-php ~/Desktop/meu-projeto-php
+

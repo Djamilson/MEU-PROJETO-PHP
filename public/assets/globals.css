@@ -71,13 +71,8 @@ p {
   transition: all 0.3s ease;
 }
 
-.btn-sm {
-  height: 56px;
-}
-
-.btn-lg {
-  height: 64px;
-}
+.btn-sm { height: 56px; }
+.btn-lg { height: 64px; }
 
 .btn-cta {
   background-color: #101828;
@@ -94,8 +89,8 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 90px; /* opcional: garante largura mínima */
-  height: 40px; /* altura fixa */
+  min-width: 1rem;
+  height: 40px;
   padding: 0 1rem;
   font-size: 0.875rem;
   font-weight: 500;
@@ -106,36 +101,18 @@ p {
   transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-/* Botões específicos com cores e hover */
-.btn-primary {
-  background-color: #2563eb; /* Azul Tailwind */
-}
-.btn-primary:hover {
-  background-color: #1d4ed8;
-}
+.btn-primary { background-color: #2563eb; }
+.btn-primary:hover:not(.list-title):not(h1) { background-color: #1d4ed8; }
 
-.btn-warning {
-  background-color: #f59e0b; /* Amarelo Tailwind */
-}
-.btn-warning:hover {
-  background-color: #d97706;
-}
+.btn-warning { background-color: #f59e0b; }
+.btn-warning:hover:not(.list-title):not(h1) { background-color: #d97706; }
 
-.btn-danger {
-  background-color: #dc2626; /* Vermelho Tailwind */
-}
-.btn-danger:hover {
-  background-color: #b91c1c;
-}
+.btn-danger { background-color: #dc2626; }
+.btn-danger:hover:not(.list-title):not(h1) { background-color: #b91c1c; }
 
-.btn-success {
-  background-color: #22c55e; /* Verde claro Tailwind */
-}
-.btn-success:hover {
-  background-color: #16a34a; /* Verde mais escuro no hover */
-}
+.btn-success { background-color: #22c55e; }
+.btn-success:hover:not(.list-title):not(h1) { background-color: #16a34a; }
 
-/* Efeito ao clicar (igual para todos os botões principais) */
 .btn-primary:active,
 .btn-success:active,
 .btn-warning:active,
@@ -143,23 +120,26 @@ p {
   transform: scale(0.97);
 }
 
-/* Botões secundários e de destaque */
-.btn-secondary {
-  background-color: #667085;
+.btn-secondary { background-color: #667085; }
+
+.btn-accent { background-color: #ed1d24; }
+.btn-accent:hover:not(.list-title):not(h1) { background-color: #dd242a; }
+
+.active { color: #ed1d24; }
+
+.btn-icon-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.btn-accent {
-  background-color: #ed1d24;
-}
-.btn-accent:hover {
-  background-color: #dd242a;
-}
-
-.active {
-  color: #ed1d24;
+.btn-icon-left img {
+  width: 22px;
+  height: 22px;
+  filter: brightness(0) invert(1);
 }
 
-/* === BARRA DE CARREGAMENTO (Loading Bar) === */
+/* === BARRA DE CARREGAMENTO === */
 .load-bar {
   position: fixed;
   top: 0;
@@ -179,20 +159,9 @@ p {
   text-align: center;
 }
 
-.bar:nth-child(1) {
-  background-color: #da4733;
-  animation: loading 3s linear infinite;
-}
-
-.bar:nth-child(2) {
-  background-color: #3b78e7;
-  animation: loading 3s linear 1s infinite;
-}
-
-.bar:nth-child(3) {
-  background-color: #fdba2c;
-  animation: loading 3s linear 2s infinite;
-}
+.bar:nth-child(1) { background-color: #da4733; animation: loading 3s linear infinite; }
+.bar:nth-child(2) { background-color: #3b78e7; animation: loading 3s linear 1s infinite; }
+.bar:nth-child(3) { background-color: #fdba2c; animation: loading 3s linear 2s infinite; }
 
 /* === UTILITÁRIOS === */
 .section {
@@ -213,31 +182,19 @@ p {
 .google-button-dark { background: #202124; }
 .google-button-dark:hover { background: #555658; }
 .google-button-border-light { border-color: #dadce0; }
-
 .google-logo-blue { color: #4285f4; }
 .google-logo-green { color: #34a853; }
 .google-logo-yellow { color: #fbbc05; }
 .google-logo-red { color: #ea4335; }
 
-/* === RESPONSIVIDADE (ajuste básico) === */
+/* === RESPONSIVIDADE === */
 @media (max-width: 768px) {
-  .main-content {
-    margin-left: 0;
-  }
-
-  .layout {
-    flex-direction: column;
-  }
+  .main-content { margin-left: 0; }
+  .layout { flex-direction: column; }
 }
 
 /* === ANIMAÇÕES === */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

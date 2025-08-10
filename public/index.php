@@ -66,6 +66,7 @@
 <script src="/components/user/new_user_script.js"></script>
 <script src="/components/user/edit_user_script.js"></script>
 <script src="/components/user/delete_user_script.js"></script>
+<script src="/components/Button/tooltip.js"></script>
 
 
 </body>

@@ -1,273 +1,255 @@
-/* Reset básico */
-body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    margin: 0;
-    padding: 0;
-}
-
-/* Container principal */
+/* ===== Container principal ===== */
 .container {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 1rem;
-    background: #fff;
-    border-radius: 8px;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 8px;
 }
 
-/* Cabeçalho com botão */
+/* ===== Cabeçalho ===== */
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
 }
 
-/* Botões */
-.btn-primary {
-    background: #007bff;
-    color: white;
-    padding: 10px 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-.btn-primary:hover {
-    background: #0056b3;
-}
-
-.btn-success {
-    background: #28a745;
-    color: white;
-    padding: 10px 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-.btn-success:hover {
-    background: #1e7e34;
-}
-
-.btn-secondary {
-    background: #6c757d;
-    color: white;
-    padding: 10px 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-.btn-secondary:hover {
-    background: #565e64;
-}
-
-/* Lista de usuários */
+/* ===== Lista de usuários ===== */
 .user-list {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    opacity: 0.95;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  opacity: 0.95;
 }
 
-/* Cada linha da lista (grid) */
 .user-row {
-    display: grid;
-    grid-template-columns: 40px 1fr 140px 1fr 80px 120px 160px 160px 160px;
-    gap: 10px;
-    padding: 10px;
-    background-color: white;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-    transition: background-color 0.2s;
-    align-items: center;
-    font-size: 14px;
-    word-break: break-word;
+  display: grid;
+  grid-template-columns: 50px 1fr 120px 1fr 100px 120px 1fr 150px 120px;
+  gap: 8px;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  align-items: center;
+  font-size: 14px;
+  word-break: break-word;
+  transition: background-color 0.2s;
 }
-.user-row:hover {
+
+.user-row:nth-child(even):not(.user-header) {
+  background: #fafafa;
+}
+
+/* ===== Cabeçalho da lista ===== */
+.user-header {
+  font-weight: bold;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 2px solid #ccc;
+}
+
+.user-header > div {
+  white-space: nowrap;
+}
+
+.user-row:hover:not(.user-header) {
     background-color: #d0ebff;
     cursor: pointer;
 }
-
-/* Cabeçalho da lista */
-.user-header {
-    font-weight: bold;
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
-}
-
-/* Mensagem quando não tem usuários */
+/* ===== Mensagem sem usuários ===== */
 .no-users-msg {
-    font-style: italic;
-    color: #666;
-    padding: 15px;
+  font-style: italic;
+  color: #666;
+  padding: 15px;
 }
 
-/* Overlay do drawer */
-.drawer-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.4);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 9;
-}
-
-.drawer-overlay.show {
-    opacity: 1;
-    pointer-events: all;
-}
-
-/* Drawer lateral */
+/* ===== Drawer lateral ===== */
 .drawer {
-    position: fixed;
-    right: -420px;
-    top: 0;
-    width: 400px;
-    height: 100vh;
-    background: #fff;
-    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-    padding: 20px 30px;
-    transition: right 0.3s ease-in-out;
-    z-index: 10;
-    overflow-y: auto;
+  position: fixed;
+  right: -420px;
+  top: 0;
+  width: 400px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  padding: 20px 30px;
+  transition: right 0.3s ease-in-out;
+  z-index: 10;
+  overflow-y: auto;
 }
 
 .drawer.open {
-    right: 0;
+  right: 0;
 }
 
-/* Título do drawer */
-.drawer h2 {
-    margin-top: 0;
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-
-/* Labels do formulário */
-.form label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    font-size: 14px;
-}
-
-/* Inputs do formulário */
-.form input[type="text"],
-.form input[type="date"],
-.form input[type="email"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    box-sizing: border-box;
-    height: 44px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-    transition: border-color 0.2s ease;
-}
-
-.form input[type="text"]:focus,
-.form input[type="date"]:focus,
-.form input[type="email"]:focus {
-    outline: none;
-    border-color: #007bff;
-}
-
-/* Ações do formulário */
-.form-actions {
-    display: flex;
-    justify-content: space-between;
-}
-
-/* Scrollbar customizado drawer */
+/* ===== Scrollbar customizado drawer ===== */
 .drawer::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 }
 .drawer::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 4px;
+  background: #f1f1f1;
+  border-radius: 4px;
 }
 .drawer::-webkit-scrollbar-thumb {
-    background: #ccc;
-    border-radius: 4px;
+  background: #ccc;
+  border-radius: 4px;
 }
 .drawer::-webkit-scrollbar-thumb:hover {
-    background: #999;
+  background: #999;
 }
 
-
-/* Overlay tradicional (já existente, talvez parecido com isso) */
-.overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 9;
-}
-
-/* Novo overlay que cobre só o lado esquerdo */
-.overlay-left {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: calc(100vw - 400px); /* Se o drawer tem 400px */
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 9;
-}
-
-.overlay.show,
-.overlay-left.show {
-    opacity: 1;
-    pointer-events: all;
-}
-
-
-/* === Overlay === */
+/* ===== Overlays ===== */
+.drawer-overlay,
+.overlay,
+.overlay-left,
 #newUserDrawerOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 999; /* Fica sobre todo o conteúdo */
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 9;
 }
 
+.drawer-overlay,
+.overlay {
+  width: 100vw;
+  height: 100vh;
+}
+
+.overlay-left {
+  width: calc(100vw - 400px);
+  height: 100vh;
+}
+
+#newUserDrawerOverlay {
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.drawer-overlay.show,
+.overlay.show,
+.overlay-left.show,
 #newUserDrawerOverlay.show {
-    opacity: 1;
-    pointer-events: auto;
+  opacity: 1;
+  pointer-events: all;
 }
 
-/* === Drawer === */
+/* ===== Novo drawer de usuário ===== */
 #newUserDrawer {
-    position: fixed;
-    top: 0;
-    right: -400px; /* escondido inicialmente */
-    width: 400px;
-    height: 100%;
-    background: #fff;
-    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
-    transition: right 0.3s ease;
-    z-index: 1000; /* acima do overlay */
-    display: flex;
-    flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 400px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+  transition: right 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
 }
 
 #newUserDrawer.open {
-    right: 0;
+  right: 0;
+}
+
+/* ===== Formulário ===== */
+.form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.form input[type="text"],
+.form input[type="date"],
+.form input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  height: 44px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.form input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ===== Tooltip automático ===== */
+.tooltip {
+  position: absolute;
+  background: #333;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 9999;
+}
+
+.tooltip.show {
+  opacity: 1;
+}
+
+.tooltip-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+/* Setas do tooltip */
+.tooltip[data-position="top"] .tooltip-arrow {
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px 5px 0 5px;
+  border-color: #333 transparent transparent transparent;
+}
+
+.tooltip[data-position="bottom"] .tooltip-arrow {
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 0 5px 5px 5px;
+  border-color: transparent transparent #333 transparent;
+}
+
+.tooltip[data-position="left"] .tooltip-arrow {
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 5px 0 5px 5px;
+  border-color: transparent transparent transparent #333;
+}
+
+.tooltip[data-position="right"] .tooltip-arrow {
+  left: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 5px 5px 5px 0;
+  border-color: transparent #333 transparent transparent;
+}
+
+.user-row:not(.user-header):hover {
+    background-color: #d0ebff;
+    cursor: pointer;
 }

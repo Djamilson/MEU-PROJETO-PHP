@@ -19,8 +19,15 @@ $users = UserHandler::listUsers();
 <div class="container">
     <div class="header">
         <h1>Usuários Cadastrados</h1>
-        <button id="newUserOpenDrawerBtn" class="btn-success">Cadastrar Novo Usuário</button>
-    </div>
+        <button class="btn-success btn-icon-left" id="newUserOpenDrawerBtn">
+  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+  <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9l-7-7z"/>
+  <path d="M13 3.5L18.5 9H14a1 1 0 0 1-1-1V3.5z"/>
+  <path d="M12 12v3h3v2h-3v3h-2v-3H7v-2h3v-3h2z"/>
+</svg>
+  Novo usuário
+</button>
+        </div>
 
     <div class="user-list" id="userList">
         <!-- Conteúdo será preenchido via JavaScript -->
