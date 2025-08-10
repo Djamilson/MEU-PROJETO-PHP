@@ -1,0 +1,117 @@
+.custom-calendar {
+  position: relative;
+  display: inline-block;
+  font-family: Arial, sans-serif;
+}
+
+.label {
+display:block;
+margin-bottom:6px;
+font-size:14px;
+}
+
+/* input */
+.custom-calendar .date-picker-input {
+  padding: 8px 34px 8px 10px;
+  font-size: 14px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  width: 220px;
+  box-sizing: border-box;
+}
+
+/* ícone dentro do input */
+.custom-calendar .calendar-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: auto;
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari 3+, iOS 3+ */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE/Edge antigo */
+  user-select: none;         /* padrão */
+}
+
+/* popup */
+.custom-calendar .calendar-popup {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  padding: 10px;
+  z-index: 9999;
+  display: none;
+  min-width: 260px;
+}
+
+/* header (menor fonte) */
+.custom-calendar .calendar-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.custom-calendar .calendar-header button {
+  /* IMPORTANT: button type must be "button" in HTML */
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;    /* fonte menor */
+  padding: 6px;
+  line-height: 1;
+}
+
+.custom-calendar .calendar-header .calendar-month,
+.custom-calendar .calendar-header .calendar-year {
+  font-size: 13px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+/* weekdays small */
+.custom-calendar .calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: 600;
+  font-size: 12px; /* menor */
+  margin-bottom: 6px;
+  color: #333;
+}
+
+/* days */
+.custom-calendar .calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  gap: 4px;
+}
+
+.custom-calendar .calendar-days div {
+  padding: 6px 2px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.custom-calendar .calendar-days div:hover {
+  background: #f3f3f3;
+}
+
+.custom-calendar .calendar-days .selected {
+  background: #1976d2;
+  color: #fff;
+}
+
+/* responsividade se quiser encolher */
+@media (max-width:420px){
+  .custom-calendar .calendar-popup{ left: -10px; }
+}

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/components/user/user_style.css">
     <link rel="stylesheet" href="/components/menu/menu-left/menu-left.css">
     <link rel="stylesheet" href="/components/header/header-styles.css">
+    <link rel="stylesheet" href="/components/Calendar/calendar.css">
 </head>
 
 <body>
@@ -61,12 +62,14 @@
     });
 </script> 
 
-<script src="/components/loading/loading_script.js"></script>
-<script src="/components/user/user_common.js"></script>
-<script src="/components/user/new_user_script.js"></script>
-<script src="/components/user/edit_user_script.js"></script>
-<script src="/components/user/delete_user_script.js"></script>
+<script src="/components/Loading/loading_script.js"></script>
 <script src="/components/Button/tooltip.js"></script>
+<script src="/components/Calendar/calendar.js" defer></script>
+
+<script src="/components/user/controller/user_common.js"></script>
+<script src="/components/user/controller/new_user.js"></script>
+<script src="/components/user/controller/edit_user.js"></script>
+<script src="/components/user/controller/delete_user.js"></script>
 
 
 </body>

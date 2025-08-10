@@ -10,7 +10,9 @@ function editUserOpenDrawer(user) {
 
     document.getElementById("userId").value = user.id || '';
     document.getElementById("name").value = user.name || '';
-    document.getElementById("birth_date").value = user.birth_date || '';
+    //document.getElementById("birth_date").value = user.birth_date || '';
+    document.querySelector("[name='birth_date']").value = user.birth_date || '';
+
     document.getElementById("address").value = user.address || '';
     document.getElementById("state").value = user.state || '';
     document.getElementById("cpf").value = user.cpf || '';
@@ -34,7 +36,7 @@ editUserForm?.addEventListener("submit", async function (e) {
     const formData = new FormData(editUserForm);
 
     try {
-        const response = await fetch('/components/user/edit_user_submit_ajax.php', {
+        const response = await fetch('/components/user/services/edit_user_submit.php', {
             method: 'POST',
             body: formData
         });
@@ -72,7 +74,7 @@ async function editUserOpenDrawerById(id, localUser = null) {
     }
 
     try {
-        const response = await fetch(`/components/user/get_user_by_id_ajax.php?id=${id}`);
+        const response = await fetch(`/components/user/services/get_user_by_id.php?id=${id}`);
         const result = await response.json();
 
         if (result.status === 'success') {

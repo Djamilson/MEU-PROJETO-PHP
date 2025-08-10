@@ -27,7 +27,7 @@ userForm?.addEventListener('submit', async function (e) {
     const formData = new FormData(userForm);
 
     try {
-        const response = await fetch('/components/user/new_user_submit_ajax.php', {
+        const response = await fetch('/components/user/services/new_user_submit.php', {
             method: 'POST',
             body: formData
         });

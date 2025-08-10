@@ -59,7 +59,7 @@ function renderUserRow(user) {
 // === Função: Carregar todos os usuários ===
 async function loadUsers() {
     try {
-        const response = await fetch('/components/user/list_users_ajax.php');
+        const response = await fetch('/components/user/services/list_users.php');
         const result = await response.json();
 
         let userList = document.querySelector(".user-list");

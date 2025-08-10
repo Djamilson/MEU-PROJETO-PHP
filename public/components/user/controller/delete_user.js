@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const formData = new FormData();
       formData.append('id', userIdToDelete);
 
-      const response = await fetch('/components/user/delete_user_submit_ajax.php', {
+      const response = await fetch('/components/user/services/delete_user_submit.php', {
         method: 'POST',
         body: formData,
       });
