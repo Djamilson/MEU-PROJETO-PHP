@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "moduleResolution": "bundler",
+    "lib": ["ES2023"],
+    "module": "Node16",
+    "target": "ES2022",
+    "strictPropertyInitialization": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "strict": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": "./src",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "paths": {
+      "@modules/*": ["modules/*"],
+      "@config/*": ["config/*"],
+      "@shared/*": ["shared/*"],
+      "@gateway-payment/*": ["gateway-payment/*"],
+    },
+    "typeRoots": [
+      "./src/@types",
+      "./node_modules/@types",
+      "./node_modules/pagarme-js-types"
+    ],
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "ESNext",
+      "moduleResolution": "Node"
+    }
+  }
+}

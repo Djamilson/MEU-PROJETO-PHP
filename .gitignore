@@ -1,2 +1,6 @@
 .env
 /vendor
+/api/node_modules
+/api/.env
+/api/prisma
+

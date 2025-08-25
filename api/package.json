@@ -1,0 +1,29 @@
+{
+  "name": "backend",
+  "version": "3.0.0",
+  "private": true,
+  "description": "API Shooferta Shop",
+  "scripts": {
+    "prisma:migrate:mysql:dev": "prisma migrate dev --schema=src/shared/infra/prisma/mysql/schema-mysql.prisma",
+    "prisma:generate:mysql": "prisma generate --schema=src/shared/infra/prisma/mysql/schema-mysql.prisma",
+    "prisma:pull:mysql": "prisma db pull --schema=src/shared/infra/prisma/mysql/schema-mysql.prisma",
+    "prisma:migrate:mysql:deploy": "prisma migrate deploy --schema=src/shared/infra/prisma/mysql/schema-mysql.prisma",
+    "prisma:seed:mysql": "prisma db seed --schema=src/shared/infra/prisma/mysql/schema-mysql.prisma",
+    "prisma:studio": "prisma studio --schema=src/shared/infra/prisma/mysql/schema-mysql.prisma",
+    "prisma:mysql:format": "prisma format --schema=src/shared/infra/prisma/mysql/schema-mysql.prisma",
+    "prisma:introspect": "prisma introspect --schema=src/shared/infra/prisma/mysql/schema-mysql.prisma"
+  },
+  "prisma": {
+    "seed": "tsx src/shared/infra/prisma/postgres/dataDefault/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.14.0",
+    "cuid": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.8.6",
+    "@types/uuid": "^8.3.4",
+    "dotenv": "^16.4.5",
+    "prisma": "^6.14.0"
+  }
+}

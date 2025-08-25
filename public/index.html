@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/components/Login/login.css">
+</head>
+<body>
+    <div class="container">
+        <img src="icon.png" alt="Ícone" class="icon">
+        <h1>Estamos quase lá.</h1>
+        <p class="subtitle">Faça seu login para começar uma experiência incrível.</p>
+
+        <form id="loginForm" class="login-form" method="POST">
+            <div class="input-group">
+                <input type="text" name="login" placeholder="Seu login ou email" required>
+            </div>
+            <div class="input-group password">
+                <input type="password" name="password" placeholder="Sua senha" required>
+                <span class="toggle-password">👁</span>
+            </div>
+            <a href="#" class="forgot">esqueceu a senha? <span>recuperar</span></a>
+
+            <button type="submit" class="btn-primary">Entrar</button>
+
+            <div class="divider">Ou</div>
+
+            <button type="button" class="btn-google">
+                <span class="g-icon">G</span> Entrar com o Google
+            </button>
+
+            <p class="signup">
+                não tem cadastro? <a href="#">cadastre-se</a>
+            </p>
+            <p class="privacy">
+                Ao continuar com o acesso, você concorda com a nossa <a href="#">política de privacidade</a>
+            </p>
+        </form>
+    </div>
+
+    <script src="/components/Login/login.js"></script>
+</body>
+</html>

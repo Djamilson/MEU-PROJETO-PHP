@@ -1,0 +1,21 @@
+> docker compose -f 'docker-compose.yml' up -d --build
+> docker compose -f 'docker-compose.yml' down -v
+> docker compose -f 'nginx-for-nodejs-main/api/docker-compose.yml' down -v
+
+> docker inspect micro_shooferta_db
+
+> docker exec -i micro_eas_mysql_db mysql -u root -p"sua_senha_aqui" easdb < ./sql/easdb.sql
+
+
+✅ Como acessar
+
+Para logar como root:
+
+docker exec -it micro_eas_mysql_db mysql -u root -padmin123
+
+
+(sem espaço depois do -p)
+
+Para logar como admin:
+
+docker exec -it micro_eas_mysql_db mysql -u admin -pf2966052964454b6601c83f1cc08ab97 easdb

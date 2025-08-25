@@ -1,0 +1,171 @@
+/* reset/boilerplate importante */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  /* força a barra vertical sempre presente para evitar "layout shift"
+     quando a página tiver/ não tiver conteúdo suficiente */
+  overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+  padding: 40px 20px; /* garante espaço lateral em telas pequenas */
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #f5f6f7;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* previne qualquer overflow horizontal indesejado */
+  overflow-x: hidden;
+}
+
+/* área que contém título + card */
+.container {
+  text-align: center;
+  width: 100%;
+  max-width: 420px; /* aumentei um pouco para ficar mais fiel à sua imagem */
+}
+
+/* ícone + título */
+.icon {
+  width: 40px;
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 18px;
+}
+
+/* card branco */
+.login-form {
+  background: #fff;
+  padding: 26px; /* padding simétrico, evita sensação de "mais à esquerda" */
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  width: 100%;
+}
+
+/* inputs */
+.input-group {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 14px; /* padding simétrico horizontal */
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  background: transparent;
+  display: block;
+}
+
+/* olho de visualização da senha */
+.password .toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    line-height: 0;
+    user-select: none;
+    -webkit-user-select: none; /* Safari e iOS */
+}
+
+
+/* link recuperar */
+.forgot {
+  display: block;
+  text-align: left; /* alinha para a esquerda dentro do card */
+  font-size: 0.82rem;
+  margin-bottom: 18px;
+  color: #777;
+  text-decoration: none;
+}
+
+.forgot span {
+  color: #1a73e8;
+}
+
+/* botões */
+.btn-primary,
+.btn-google {
+  width: 100%;
+  padding: 12px 0;
+  background: #fff;
+  border: 1px solid #000;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 2px;
+}
+
+/* divisor elegante */
+.divider {
+  margin: 16px 0;
+  display: flex;
+  align-items: center;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e6e6e6;
+}
+
+.divider:not(:empty)::before {
+  margin-right: 0.75em;
+}
+.divider:not(:empty)::after {
+  margin-left: 0.75em;
+}
+
+.btn-google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.g-icon {
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+/* textos finais */
+.signup {
+  font-size: 0.86rem;
+  margin-top: 14px;
+}
+
+.signup a,
+.privacy a {
+  color: #1a73e8;
+}
+
+.privacy {
+  font-size: 0.72rem;
+  margin-top: 10px;
+  color: #777;
+  line-height: 1.2;
+}
